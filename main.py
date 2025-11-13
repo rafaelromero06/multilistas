@@ -1,14 +1,7 @@
-from flask import Flask, render_template
-app=Flask(__name__)
-@app.route('/')
-def root():
-   markers=[
-   {
-   'lat':0,
-   'lon':0,
-   'popup':'This is the middle of the map.'
-    }
-   ]
-   return render_template('index.html',markers=markers )
-if __name__ == '__main__':
-   app.run(host="localhost", port=8081, debug=True)
+from lector import construir
+
+if __name__ == "__main__":
+    ruta_csv = "divipola.csv"
+    multilista = construir(ruta_csv)
+    print("Estructura jerárquica DIVIPOLA:")
+    multilista.mostrar()
